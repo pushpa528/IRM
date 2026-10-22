@@ -14,5 +14,4 @@ Before you create and configure nodes in IPA, ensure that you:
 - Have the required **credentials** available if the node accesses an authenticated service.
 - Identify task-specific settings, such as **wait timeout**, **parallel processing**, or **sub-workflows**, where applicable.
 - Ensure that the **processor image supports the actions** you configure for the node.
-
-> **Platform engineers:** Identify the required advanced settings, such as **Form Type**, **Node Type**, **Category**, **Classification**, **Worker Name**, **Simple Conductor Type**, and **node availability**, when configuring platform-level nodes.
+- Platform engineers Identify the required advanced settings, such as **Form Type**, **Node Type**, **Category**, **Classification**, **Worker Name**, **Simple Conductor Type**, and **node availability**, when configuring platform-level nodes.
