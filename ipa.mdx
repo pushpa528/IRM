@@ -1,1 +1,37 @@
+---
+title: "How IPA works"
+description: "Learn how IPA uses event-driven scaling and task execution to process workflow tasks based on incoming messages."
+---
 
+# How IPA works
+
+IPA uses event-driven scaling and task execution to process workflow tasks efficiently based on incoming messages.
+
+<Frame caption="IPA architecture">
+  <img
+    src="/images/ipa-architecture.png"
+    alt="IPA architecture showing Kafka, processor template, and job, API, and batch task execution paths"
+  />
+</Frame>
+
+When an IPA node receives a task, it sends a message to a Kafka topic. The message triggers processing. KEDA (Kubernetes Event-Driven Autoscaling) monitors the Kafka topic and scales the required processor when it detects a new message.
+
+## Task execution in workflow
+
+The task processor uses a processor template to execute each task based on its type. IPA supports three types of tasks:
+
+### Job-based task
+
+Each message runs as a separate job. The processor runs a configured number of jobs concurrently, while additional jobs wait in a queue until resources are available.
+
+### API-based task
+
+The processor starts an API server when required and then executes the request.
+
+### Batch-based task
+
+Messages remain in a queue until they reach the configured queue-depth threshold. A task processor then processes the queued messages in parallel.
+
+<Tip>
+  Place the architecture image at `images/ipa-architecture.png` in your Mintlify documentation repository so the image path above resolves correctly.
+</Tip>
