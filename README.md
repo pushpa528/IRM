@@ -1,2 +1,0 @@
-# IRM
-Mintlify
